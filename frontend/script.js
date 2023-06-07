@@ -114,7 +114,9 @@ function updateDivContent2() {
   myDiv.innerHTML = "";
   myDiv.appendChild(new_div);
 }
-
+function logout() {
+  location.reload();
+}
 function replaceElements() {
   var myDiv = document.getElementById("planet_details");
   var loading = document.getElementById("loading");
