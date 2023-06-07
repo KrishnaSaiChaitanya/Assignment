@@ -7,17 +7,16 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
+
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <link href="/frontend/styles.css" rel="stylesheet" />
-    <script src="script.js"></script>
-    <!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> -->
+    <link href="./styles.css" rel="stylesheet" />
+    <script src="./script.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 </head>
 
 <body>
-    <!-- Pills navs -->
     <div class="d-flex justify-content-center d-flex align-items-center" style="height: 100vh">
         <div style="justify-content: center; align-items: center">
             <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
@@ -30,33 +29,40 @@
                         aria-controls="pills-register" aria-selected="false">Register</a>
                 </li>
             </ul>
-            <!-- Pills navs -->
 
-
-            <div class="tab-content">
-                <div id="after-login" role="tabpanel" aria-labelledby="tab-login">
-                    <!-- <iframe src="https://embed.lottiefiles.com/animation/94900"></iframe> -->
-                    <iframe style="height: 250px" id="iframe"
-                        src="https://embed.lottiefiles.com/animation/77079"></iframe>
-                    <p class="text-center h3 fw-bold mb-2 mx-1 mx-md-4 mt-4" id="iframe_text">
-                        Successfully Logged in
-                    </p>
-                    <div class="d-flex justify-content-center d-flex align-items-center p-2">
-                        <button type="button" class="btn btn-secondary btn-rounded">
-                            Logout
-                        </button>
-                    </div>
+            <div id="after-login" role="tabpanel" aria-labelledby="tab-login">
+                <!-- <iframe src="https://embed.lottiefiles.com/animation/94900"></iframe> -->
+                <iframe style="height: 250px" id="iframe" src="https://embed.lottiefiles.com/animation/77079"></iframe>
+                <p class="text-center h3 fw-bold mb-2 mx-1 mx-md-4 mt-1" id="iframe_text">
+                    Successfully Logged in
+                </p>
+                <div class="d-flex justify-content-center d-flex align-items-center p-2">
+                    <button type="button" id="logout" class="btn btn-secondary btn-rounded">
+                        Logout
+                    </button>
                 </div>
+            </div>
+            <div id="after-register" role="tabpanel" aria-labelledby="tab-login">
+                <!-- <iframe src="https://embed.lottiefiles.com/animation/94900"></iframe> -->
+                <iframe style="height: 250px" id="iframe1" src="https://embed.lottiefiles.com/animation/77079"></iframe>
+                <p class="text-center h3 fw-bold mb-2 mx-1 mx-md-4 mt-1" id="iframe_text1">
+                    Successfully Logged in
+                </p>
+                <div class="d-flex justify-content-center d-flex align-items-center p-2">
+                    <button type="button" id="logout" class="btn btn-secondary btn-rounded">
+                        Logout
+                    </button>
+                </div>
+            </div>
+            <div class="tab-content">
                 <div class="tab-pane fade show active mb-3" id="pills-login" role="tabpanel"
                     aria-labelledby="tab-login">
                     <p class="text-center h1 fw-bold mb-2 mx-1 mx-md-4 mt-4">Sign In</p>
                     <form class="mx-1 mx-md-4 pt-5 pb-5">
-
-
                         <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
-                                <input type="email" id="form3Example3c" class="form-control" />
+                                <input type="email" id="login_email" class="form-control" />
                                 <label class="form-label" for="form3Example3c">Your Email</label>
                                 <!-- <input type="email" id="email" class="form-control" />
                         <label class="form-label" for="form12">Example label</label> -->
@@ -66,7 +72,7 @@
                         <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
-                                <input type="password" id="form3Example4c" class="form-control" />
+                                <input type="password" id="login_password" class="form-control" />
                                 <label class="form-label" for="form3Example4c">Password</label>
                             </div>
                         </div>
@@ -79,7 +85,7 @@
                         </div>
 
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 mt-5">
-                            <button type="button" onclick="updateDivContent()"
+                            <button type="button" onclick="updateDivContent1()"
                                 class="btn btn-primary btn-lg btn-rounded btn-responsive">
                                 Login
                             </button>
@@ -92,7 +98,7 @@
                         <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
-                                <input type="text" id="form3Example1c" class="form-control" />
+                                <input type="text" id="register_name" class="form-control" />
                                 <label class="form-label" for="form3Example1c">Your Name</label>
                             </div>
                         </div>
@@ -100,7 +106,7 @@
                         <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
-                                <input type="email" id="form3Example3c" class="form-control" />
+                                <input type="email" id="register_email" class="form-control" />
                                 <label class="form-label" for="form3Example3c">Your Email</label>
                                 <!-- <input type="email" id="email" class="form-control" />
                                     <label class="form-label" for="form12">Example label</label> -->
@@ -110,7 +116,7 @@
                         <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
-                                <input type="password" id="form3Example4c" class="form-control" />
+                                <input type="password" id="register_password" class="form-control" />
                                 <label class="form-label" for="form3Example4c">Password</label>
                             </div>
                         </div>
@@ -131,7 +137,8 @@
                         </div>
 
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                            <button type="button" class="btn btn-primary btn-lg btn-rounded btn-responsive">
+                            <button type="button" onclick="updateDivContent2()"
+                                class="btn btn-primary btn-lg btn-rounded btn-responsive">
                                 Register
                             </button>
                         </div>
