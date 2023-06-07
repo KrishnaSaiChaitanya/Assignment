@@ -1,0 +1,113 @@
+/* .tabs {
+    display: flex;
+}
+
+.tab {
+    padding: 10px;
+    margin-right: 10px;
+    background-color: lightgray;
+    border: none;
+    cursor: pointer;
+}
+
+.tabContent {
+    display: none;
+}
+
+.taskList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.taskList li {
+    margin-bottom: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    cursor: move;
+}
+
+.inputContainer {
+    margin-bottom: 10px;
+}
+
+button {
+    margin-left: 10px;
+} */
+
+/* .tabs {
+    display: flex;
+}
+
+.tab {
+    padding: 10px;
+    margin-right: 10px;
+    background-color: lightgray;
+    border: none;
+    cursor: default;
+}
+
+.tab.active {
+    background-color: gray;
+    color: white;
+}
+
+.tabContent {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.taskList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.taskList li {
+    margin-bottom: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    cursor: move;
+}
+
+.inputContainer {
+    margin-bottom: 10px;
+}
+
+button {
+    margin-left: 10px;
+}
+ */
+#planet_details{
+    display: none;
+}
+#loading{
+    display: none;
+}
+@media (max-width: 576px) {
+    .btn-responsive {
+        width: 100%;
+    }
+    .planet{
+        width: 100%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .btn-responsive {
+        width: 75%;
+    }
+        .planet {
+            width: 20rem;
+        }
+}
+
+@media (min-width: 768px) {
+    .btn-responsive {
+        width: 20rem;
+    }
+        .planet {
+            width: 20rem;
+        }
+}
+#after-login{
+    display: none;
+}

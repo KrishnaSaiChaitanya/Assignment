@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+        * {
+            list-style: none;
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            background: #f5f6fa;
+        }
+
+        .wrapper .sidebar {
+            background: rgb(5, 68, 104);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100%;
+            padding: 20px 0;
+            transition: all 0.5s ease;
+        }
+
+        .wrapper .sidebar .profile {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .wrapper .sidebar .profile img {
+            display: block;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+
+        .wrapper .sidebar .profile h3 {
+            color: #ffffff;
+            margin: 10px 0 5px;
+        }
+
+        .wrapper .sidebar .profile p {
+            color: rgb(206, 240, 253);
+            font-size: 14px;
+        }
+
+        .wrapper .sidebar ul li a {
+            display: block;
+            padding: 13px 30px;
+            border-bottom: 1px solid #10558d;
+            color: rgb(241, 237, 237);
+            font-size: 16px;
+            position: relative;
+        }
+
+        li {
+            margin: 5px;
+        }
+
+        .wrapper .sidebar ul li a .icon {
+            color: #dee4ec;
+            width: 30px;
+            display: inline-block;
+        }
+
+
+
+        .wrapper .sidebar ul li a:hover,
+        .wrapper .sidebar ul li a.active {
+            color: #0c7db1;
+
+            background: white;
+            border-right: 2px solid rgb(5, 68, 104);
+        }
+
+        .wrapper .sidebar ul li a:hover .icon,
+        .wrapper .sidebar ul li a.active .icon {
+            color: #0c7db1;
+        }
+
+        .wrapper .sidebar ul li a:hover:before,
+        .wrapper .sidebar ul li a.active:before {
+            display: block;
+        }
+
+        .wrapper .section {
+            width: calc(100% - 280px);
+            margin-left: 280px;
+            transition: all 0.5s ease;
+        }
+
+        .top_navbar {
+            background: rgb(85, 192, 237);
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+
+        }
+
+        .wrapper .section .top_navbar .hamburger a {
+            font-size: 28px;
+            color: #f4fbff;
+        }
+
+        .wrapper .section .top_navbar .hamburger a:hover {
+            color: #a2ecff;
+        }
+
+
+
+        body.active .wrapper .sidebar {
+            left: -280px;
+        }
+
+        body.active .wrapper .section {
+            margin-left: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="section" style="height: 100vh;">
+            <div class="top_navbar">
+                <div class="hamburger">
+                    <a onclick="renderHTMLPage()">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+            <div style="height: 100%;">
+                <iframe id="content" src="" style="height: 100%; width: 100%;"></iframe>
+            </div>
+        </div>
+        <div class="sidebar" style="display: flex; justify-content: center;flex-direction: column;">
+
+            <ul style="display: flex; flex-direction: column; justify-content: center;">
+
+                <li>
+                    <a onclick="renderHTMLPage(1)">
+
+                        <span class="item">Question - 1</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a onclick="renderHTMLPage(2)">
+
+                        <span class="item">Question - 2</span>
+                    </a>
+                </li>
+                <li>
+                    <a onclick="renderHTMLPage(3)">
+
+                        <span class="item">Question - 3</span>
+                    </a>
+                </li>
+                <li>
+                    <a onclick="renderHTMLPage(4)">
+
+                        <span class="item">Question - 4</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="profile" style="display: flex; flex-direction: column; justify-content: center; padding: 20px;">
+
+                <h3>Made By</h3>
+                <p style="padding: 5px;">T K S Chaitanya</p>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var hamburger = document.querySelector(".hamburger");
+        hamburger.addEventListener("click", function () {
+            document.querySelector("body").classList.toggle("active");
+        })
+        function renderHTMLPage(id) {
+            // var targetDiv = document.getElementById('content');
+            // targetDiv.innerHTML = ''; // Clear previous content
+
+            // Create an iframe element to load the HTML page
+            var iframe = document.getElementById('content');
+            if (id == 1) {
+                iframe.src = './Question1.html';
+            }
+            else if (id == 2) {
+                iframe.src = './Question2.html';
+            }
+            else if (id == 3) {
+                iframe.src = './Question3.html';
+            }
+            else if (id == 4) {
+                iframe.src = './Question4.html';
+            }
+
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = 'none';
+
+            targetDiv.appendChild(iframe);
+        }
+    </script>
+</body>
+
+</html>

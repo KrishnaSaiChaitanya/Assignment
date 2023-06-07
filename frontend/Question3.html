@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management</title>
+    <!-- Include Material Design Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <!-- Include Material Design Bootstrap JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"
+        integrity="sha512-8vP3drOweNQbF5anv6TkQ7+4Tl4/rmoU3/Up7pmjeL9rK7cU7aEr17WpBL7J1UOp+2Z0XvYvkiwXz+k0nebYvg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .task {
+            padding: 10px;
+            margin: 10px;
+            background-color: #f8f9fa;
+            cursor: move;
+        }
+
+        #todo,
+        #completed,
+        #inprogress {
+            min-height: 200px;
+            border: 2px dashed #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height: 100%; width: 100%">
+        <div class="container p-3">
+            <p class="text-center h2 fw-bold mb-4 mx-1 mx-md-4">TODO List</p>
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <form id="taskForm" class="text-center">
+                        <input type="text" id="taskInput" class="form-control mb-3" placeholder="Enter task" />
+                        <button type="submit" class="btn btn-primary">Add Task</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="todo" ondrop="drop(event, 'todo')" ondragover="allowDrop(event)">
+                        <h4 class="text-center">Do</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="completed" ondrop="drop(event, 'completed')" ondragover="allowDrop(event)">
+                        <h4 class="text-center">Done</h4>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="inprogress" ondrop="drop(event, 'inprogress')" ondragover="allowDrop(event)">
+                        <h4 class="text-center">Doing</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+
+        function drop(event, target) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text");
+            var targetElement = document.getElementById(target);
+            targetElement.appendChild(document.getElementById(data));
+        }
+
+        document
+            .getElementById("taskForm")
+            .addEventListener("submit", function (event) {
+                event.preventDefault();
+                var taskInput = document.getElementById("taskInput");
+                var task = document.createElement("div");
+                task.classList.add("task");
+                task.draggable = true;
+                task.id = "task_" + Date.now();
+                task.addEventListener("dragstart", drag);
+                task.innerText = taskInput.value;
+                document.getElementById("todo").appendChild(task);
+                taskInput.value = "";
+            });
+    </script>
+</body>
+
+</html>

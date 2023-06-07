@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Print Even Numbers</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Include Material Design Bootstrap JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"
+        integrity="sha512-8vP3drOweNQbF5anv6TkQ7+4Tl4/rmoU3/Up7pmjeL9rK7cU7aEr17WpBL7J1UOp+2Z0XvYvkiwXz+k0nebYvg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var start = 2; // Starting even number
+        var end = 100; // Ending number
+        var batchSize = 5; // Number of even numbers to print at a time
+        var delay = 2000; // Delay in milliseconds (5 seconds)
+
+        // Function to print the next batch of even numbers
+        function printNextBatch() {
+            var output = document.getElementById('output');
+            var numbers = '';
+
+            for (var i = 0; i < batchSize; i++) {
+                if (start <= end) {
+                    numbers += start + ' ';
+                    start += 2; // Increment by 2 for the next even number
+                }
+            }
+
+            output.innerHTML += numbers;
+        }
+
+        // Function to start printing even numbers
+        function startPrinting() {
+            var output = document.getElementById('output');
+            var completed = document.getElementById('completed')
+            output.innerHTML = ''; // Clear previous output
+
+            var interval = setInterval(function () {
+                if (start > end) {
+                    clearInterval(interval);
+                    completed.style.display = "block"
+                } else {
+                    printNextBatch();
+                }
+            }, delay);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="">
+        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 mt-4">
+            <button onclick="startPrinting()" class="btn btn-primary btn-rounded" id="btn">Start Printing
+                Numbers</button>
+        </div>
+        <div class="d-flex justify-content-center flex-column mx-4 mb-3 mb-lg-4 mt-4 p-5">
+            <div class="" style="border: 2px dotted black;">
+                <h5 class="text-center p-5 mt-3" id="output">
+
+                </h5>
+            </div>
+            <div class="" id="completed" style="display: none;">
+                <p class="text-center h3 fw-bold m-4 " style="color: rgb(129, 232, 124);">
+                    Numbers are Successfully printed
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

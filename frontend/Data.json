@@ -1,0 +1,44 @@
+{
+  "planets": [
+    {
+      "name": "Mercury",
+      "imageURL": "./images/p1.png",
+      "information": "Mercury is the closest planet to the Sun and the smallest planet in the Solar System. It has a rocky surface and no atmosphere."
+    },
+    {
+      "name": "Venus",
+      "imageURL": "./images/p2.png",
+      "information": "Venus is the second planet from the Sun and is known for its thick atmosphere, making it the hottest planet in our Solar System."
+    },
+    {
+      "name": "Earth",
+      "imageURL": "./images/p3.png",
+      "information": "Earth is the third planet from the Sun and the only known celestial body to support life. It has a diverse range of ecosystems and is the home of human beings."
+    },
+    {
+      "name": "Mars",
+      "imageURL": "./images/p4.png",
+      "information": "Mars is the fourth planet from the Sun and is often called the 'Red Planet' due to its reddish appearance. It has polar ice caps and a thin atmosphere."
+    },
+    {
+      "name": "Jupiter",
+      "imageURL": "./images/p5.png",
+      "information": "Jupiter is the largest planet in our Solar System, known for its distinct bands of clouds and the Great Red Spot, a persistent storm system."
+    },
+    {
+      "name": "Saturn",
+      "imageURL": "./images/p6.png",
+      "information": "Saturn is the sixth planet from the Sun and is recognized for its iconic ring system, composed of icy particles and rock debris."
+    },
+    {
+      "name": "Uranus",
+      "imageURL": "./images/p7.png",
+      "information": "Uranus is the seventh planet from the Sun and is characterized by its unique tilted axis, causing it to rotate on its side."
+    },
+    {
+      "name": "Neptune",
+      "imageURL": "./images/p8.png",
+      "information": "Neptune is the eighth and farthest known planet from the Sun. It is a gas giant and has a deep blue color due to the presence of methane in its atmosphere."
+    }
+  ]
+}
